@@ -277,6 +277,7 @@
     if (menu && burger) {
       var links = $$('a span', menu);
       menuTl = gsap.timeline({ paused: true })
+        .eventCallback('onReverseComplete', function () { gsap.set(menu, { visibility: 'hidden' }); })
         .set(menu, { visibility: 'visible' })
         .fromTo(menu, { clipPath: 'circle(0% at calc(100% - 46px) 46px)' }, { clipPath: 'circle(150% at calc(100% - 46px) 46px)', duration: 0.8, ease: 'expo.inOut' })
         .from(links, { yPercent: 110, rotation: NO_CATEGORY_ROTATION ? 0 : 6, duration: 0.7, stagger: 0.06, ease: 'expo.out' }, 0.35)
@@ -309,6 +310,7 @@
     menuOpen = true;
     html.classList.add('menu-open');
     $('.burger').setAttribute('aria-expanded', 'true');
+    $('.burger').setAttribute('aria-label', 'Fermer le menu');
     $('.mobile-menu').setAttribute('aria-hidden', 'false');
     if (lenis) lenis.stop();
     menuTl.timeScale(1).play();
@@ -319,9 +321,77 @@
     menuOpen = false;
     html.classList.remove('menu-open');
     $('.burger').setAttribute('aria-expanded', 'false');
+    $('.burger').setAttribute('aria-label', 'Ouvrir le menu');
     $('.mobile-menu').setAttribute('aria-hidden', 'true');
     if (lenis) lenis.start();
     menuTl.timeScale(1.6).reverse();
+  }
+
+  function initHeroToolBadges() {
+    $$('.hero__tool-badge').forEach(function (badge) {
+      var card = badge.closest('.hero__card');
+      if (!card) return;
+
+      badge.setAttribute('tabindex', '0');
+      badge.setAttribute('role', 'group');
+      badge.setAttribute('aria-roledescription', 'badge déplaçable');
+      var drag = null;
+
+      badge.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        e.preventDefault();
+        gsap.killTweensOf(badge, 'x,y');
+        var rect = badge.getBoundingClientRect();
+        drag = {
+          pointerId: e.pointerId,
+          pointerX: e.clientX,
+          pointerY: e.clientY,
+          x: gsap.getProperty(badge, 'x'),
+          y: gsap.getProperty(badge, 'y'),
+          left: rect.left,
+          right: rect.right,
+          top: rect.top,
+          bottom: rect.bottom
+        };
+        badge.classList.add('is-dragging');
+        badge.setPointerCapture(e.pointerId);
+      });
+
+      badge.addEventListener('pointermove', function (e) {
+        if (!drag || drag.pointerId !== e.pointerId) return;
+        e.preventDefault();
+        var bounds = card.getBoundingClientRect();
+        var x = Math.max(bounds.left - drag.left, Math.min(bounds.right - drag.right, e.clientX - drag.pointerX));
+        var y = Math.max(bounds.top - drag.top, Math.min(bounds.bottom - drag.bottom, e.clientY - drag.pointerY));
+        gsap.set(badge, { x: drag.x + x, y: drag.y + y });
+      });
+
+      function stopDrag() {
+        drag = null;
+        badge.classList.remove('is-dragging');
+      }
+
+      badge.addEventListener('pointerup', stopDrag);
+      badge.addEventListener('pointercancel', stopDrag);
+      badge.addEventListener('lostpointercapture', stopDrag);
+
+      badge.addEventListener('keydown', function (e) {
+        var step = e.shiftKey ? 24 : 12;
+        var dx = e.key === 'ArrowLeft' ? -step : e.key === 'ArrowRight' ? step : 0;
+        var dy = e.key === 'ArrowUp' ? -step : e.key === 'ArrowDown' ? step : 0;
+        if (!dx && !dy) return;
+        e.preventDefault();
+
+        var rect = badge.getBoundingClientRect();
+        var bounds = card.getBoundingClientRect();
+        dx = Math.max(bounds.left - rect.left, Math.min(bounds.right - rect.right, dx));
+        dy = Math.max(bounds.top - rect.top, Math.min(bounds.bottom - rect.bottom, dy));
+        gsap.set(badge, {
+          x: gsap.getProperty(badge, 'x') + dx,
+          y: gsap.getProperty(badge, 'y') + dy
+        });
+      });
+    });
   }
 
   /* ---------------------------------------------------------
@@ -740,22 +810,23 @@
       var group = 'duo-' + si;
       return '<div class="duo">' + s.items.map(function (it) {
         var isVideo = Object.prototype.hasOwnProperty.call(it, 'video');
-        var attrs = isVideo ? videoAttrs(it, true) + ' tabindex="0" role="button"' : lbAttrs(group, it.src, it.alt, it.caption);
-        var fig = '<figure class="work"><div class="work__img" style="aspect-ratio: 3 / 4"' + attrs + '>' + img(it.src, it.alt) + '</div>' +
+        var video = isVideo ? Object.assign({}, it, { title: it.title || s.title, poster: it.src }) : null;
+        var media = isVideo
+          ? videoCover(video, true)
+          : '<button class="work__img" style="aspect-ratio: 3 / 4"' + lbAttrs(group, it.src, it.alt, it.caption) + '>' + img(it.src, it.alt) + '</button>';
+        var fig = '<figure class="work' + (isVideo ? ' work--video' : '') + '"><div class="work__media">' + media + '</div>' +
           '<figcaption class="work__cap">' + esc(it.caption) + (it.caption2 ? '<small>' + esc(it.caption2) + '</small>' : '') + '</figcaption></figure>';
-        if (isVideo) fig += '<button class="play-btn" type="button"' + videoAttrs(it, true) + ' aria-label="Lire la vidéo">' + ICON.play + '</button>';
         return fig;
       }).join('') + '</div>';
     },
 
     site: function (s, si) {
       var number = si + 1 < 10 ? '0' + (si + 1) : String(si + 1);
-      var group = 'site-' + si;
       return '<article class="site-project' + (si % 2 ? ' site-project--reverse' : '') + '">' +
-        '<div class="site-project__visual"><span class="site-project__index">' + number + ' / PROJET WEB</span>' +
-        '<div class="site-project__mockup">' + browserMarkup(img(s.image, s.alt), lbAttrs(group, s.image, s.alt, s.title)) + '</div></div>' +
-        '<div class="site-project__content"><p class="site-project__eyebrow">Création web' + (s.tool ? ' · ' + esc(s.tool) : '') + '</p>' +
+        '<div class="site-project__intro"><span class="site-project__index">' + number + ' / PROJET WEB</span>' +
+        '<p class="site-project__eyebrow">Création web' + (s.tool ? ' · ' + esc(s.tool) : '') + '</p>' +
         '<h2 class="site-project__title">' + esc(s.title) + '</h2>' +
+        '</div><div class="site-project__content">' +
         '<p class="site-project__description">' + esc(s.text) + '</p>' +
         '<div class="site-project__actions">' + linkOrSpan(s.url, esc(s.linkLabel || 'Voir le projet') + ' ' + ICON.upright, 'pill pill--upper site-project__cta') +
         (s.note ? '<p class="site-project__note">' + esc(s.note) + '</p>' : '') + '</div></div></article>';
@@ -962,16 +1033,13 @@
     // Duo (Yummy Lips)
     $$('.duo').forEach(function (duo) {
       gsap.timeline({ scrollTrigger: { trigger: duo, start: 'top 82%' } })
-        .from($$('.work', duo), { opacity: 0, x: -60, rotation: NO_CATEGORY_ROTATION ? 0 : -5, stagger: 0.15, duration: 1.1, ease: 'expo.out' })
-        .from($$('.play-btn', duo), { scale: 0, rotation: NO_CATEGORY_ROTATION ? 0 : -180, duration: 0.8, ease: 'back.out(2.5)' }, 0.6);
-      if (!NO_CATEGORY_ROTATION) $$('.work', duo).forEach(function (w) { tilt(w, $('.work__img', w), 7); });
+        .from($$('.work', duo), { opacity: 0, x: -60, rotation: NO_CATEGORY_ROTATION ? 0 : -5, stagger: 0.15, duration: 1.1, ease: 'expo.out' });
+      if (!NO_CATEGORY_ROTATION) $$('.work', duo).forEach(function (w) { tilt(w, $('.work__img, .video-card__cover', w), 7); });
     });
 
     // Site web : animations au défilement des projets (le hero reste intact)
     if (PAGE === 'site-web') $$('.site-project').forEach(function (project) {
-      var visual = $('.site-project__visual', project);
       var index = $('.site-project__index', project);
-      var mockup = $('.site-project__mockup', project);
       var eyebrow = $('.site-project__eyebrow', project);
       var title = $('.site-project__title', project);
       var description = $('.site-project__description', project);
@@ -980,8 +1048,6 @@
       gsap.timeline({ scrollTrigger: { trigger: project, start: 'top 84%', once: true } })
         .from(project, { opacity: 0, y: 48, duration: 0.9, ease: 'power3.out' })
         .from(index, { opacity: 0, x: -18, duration: 0.55, ease: 'power2.out' }, 0.12)
-        .from(visual, { clipPath: 'inset(0 0 100% 0 round 18px)', duration: 1.1, ease: 'power3.inOut' }, 0.16)
-        .from(mockup, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out' }, 0.28)
         .from(eyebrow, { opacity: 0, y: 14, duration: 0.55, ease: 'power2.out' }, 0.25)
         .from(titleSplit.chars, { opacity: 0, yPercent: 75, stagger: 0.025, duration: 0.65, ease: 'power3.out' }, 0.34)
         .from(description, { opacity: 0, y: 18, duration: 0.65, ease: 'power2.out' }, 0.58)
@@ -1152,6 +1218,7 @@
     safe('background', initBackground);
     safe('cursor', initCursor);
     safe('nav', initNav);
+    safe('hero-tool-drag', initHeroToolBadges);
     safe('lightbox', initLightbox);
     var isHome = PAGE === 'index';
     var preloader = isHome ? safe('preloader', runPreloader) : null;

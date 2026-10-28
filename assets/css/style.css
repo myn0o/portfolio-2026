@@ -896,6 +896,9 @@ button {
   position: absolute;
   z-index: 5;
   width: max-content;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
   transition: transform 0.8s var(--ease), filter 0.8s var(--ease);
 }
 
@@ -926,8 +929,18 @@ button {
 }
 
 .hero__tool-badge:hover {
-  transform: translateY(-5px);
   filter: drop-shadow(0 9px 12px rgba(91, 108, 255, 0.3));
+}
+
+.hero__tool-badge.is-dragging {
+  z-index: 6;
+  cursor: grabbing;
+  transition: filter 0.2s var(--ease);
+}
+
+.hero__tool-badge:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 5px;
 }
 
 .hero__tool-badge--figma {
@@ -1086,6 +1099,7 @@ button {
 
 .folder__hint {
   margin-top: 19px;
+  padding-top: 14px;
   text-align: center;
   font-size: 13px;
   color: var(--dim);
@@ -1524,7 +1538,7 @@ button {
 }
 
 .video-card__cover--vertical {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 9 / 16;
 }
 
 .video-card__preview {
@@ -2282,12 +2296,11 @@ button {
   --site-accent: var(--lavender);
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
-  gap: clamp(24px, 4vw, 56px);
-  padding: clamp(20px, 3.5vw, 42px);
-  padding-top: calc(clamp(20px, 3.5vw, 42px) + 16px);
-  padding-bottom: calc(clamp(20px, 3.5vw, 42px) + 16px);
+  gap: clamp(28px, 6vw, 84px);
+  min-height: 290px;
+  padding: clamp(26px, 5vw, 64px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: clamp(20px, 3vw, 32px);
@@ -2310,23 +2323,22 @@ button {
 }
 
 .site-project--reverse {
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
 }
 
-.site-project--reverse .site-project__visual { order: 2; }
+.site-project--reverse .site-project__intro { order: 2; }
 .site-project--reverse .site-project__content { order: 1; }
 
-.site-project__visual,
+.site-project__intro,
 .site-project__content {
   position: relative;
   min-width: 0;
 }
 
-.site-project__visual {
+.site-project__intro {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .site-project__index,
@@ -2342,8 +2354,7 @@ button {
 }
 
 .site-project__index {
-  width: min(100%, 600px);
-  margin-inline: auto;
+  margin-bottom: clamp(22px, 4vw, 48px);
 }
 
 .site-project__index::before {
@@ -2355,82 +2366,17 @@ button {
   box-shadow: 0 0 14px var(--site-accent);
 }
 
-.site-project__mockup {
-  position: relative;
-  width: min(100%, 600px);
-  margin: 18px auto 0;
-  padding: clamp(8px, 1.1vw, 13px);
-  border: 1px solid rgba(255, 255, 255, 0.88);
-  border-radius: 24px 24px 38px 24px;
-  background: linear-gradient(145deg, rgba(251, 250, 255, 0.75) 0%, rgba(232, 230, 255, 0.75) 100%);
-  box-shadow: 12px 12px 0 rgba(151, 161, 255, 0.34), 0 28px 58px rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.95);
-  align-self: center;
-  transform: none;
-  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
-}
-
-body[data-page="site-web"] .render-root > .block:first-child .site-project__mockup {
-  border-color: transparent;
-}
-
-.site-project__mockup::before {
-  content: none;
-}
-
-.site-project__mockup::after {
-  content: none;
-}
-
-.site-project__mockup:hover {
-  transform: translateY(-5px);
-  box-shadow: 8px 16px 0 rgba(151, 161, 255, 0.42), 0 34px 64px rgba(0, 0, 0, 0.34), inset 0 1px rgba(255, 255, 255, 0.95);
-}
-
-.site-project--reverse .site-project__mockup {
-  transform: none;
-}
-
-.site-project--reverse .site-project__mockup:hover {
-  transform: translateY(-5px);
-}
-
-.site-project__mockup .browser {
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  border-radius: 15px;
-  background: transparent;
-  box-shadow: none;
-}
-
-.site-project__mockup .browser__bar {
-  display: none;
-}
-
-.site-project__mockup .browser__view {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 0;
-  background: #15171d;
-}
-
-.site-project__mockup .browser__view img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-  object-fit: cover;
-  object-position: center center;
-  transform: none;
-}
-
 .site-project__title {
-  margin: 13px 0 15px;
+  margin: 10px 0 0;
   font-family: var(--f-title);
-  font-size: clamp(30px, 4.2vw, 56px);
+  font-size: clamp(34px, 4.6vw, 62px);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 0.98;
+}
+
+.site-project__eyebrow {
+  color: var(--lavender);
 }
 
 .site-project__description {
@@ -2473,25 +2419,6 @@ body[data-page="site-web"] .render-root > .block:first-child .site-project__mock
 /* Ajustements propres à la catégorie Site web */
 body[data-page="site-web"] .site-project__title {
   letter-spacing: 0.01em;
-}
-
-body[data-page="site-web"] .site-project__mockup .browser__view img {
-  object-fit: cover;
-  object-position: center;
-  transform: none;
-  transition: none;
-}
-
-body[data-page="site-web"] .site-project:not(.site-project--reverse) .site-project__mockup .browser__view img {
-  object-position: center center;
-}
-
-body[data-page="site-web"] .site-project--reverse .site-project__mockup .browser__view img {
-  object-position: center top;
-}
-
-body[data-page="site-web"] .site-project__mockup .browser:hover .browser__view img {
-  transform: none;
 }
 
 /* ----- À propos ----- */
@@ -2638,7 +2565,6 @@ body[data-page="a-propos"] .about-block {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
-.lightbox__stage video,
 .lightbox__stage iframe {
   width: min(92vw, 1100px);
   max-height: 82vh;
@@ -2648,10 +2574,15 @@ body[data-page="a-propos"] .about-block {
   background: #000;
 }
 
-.lightbox__stage video.is-vertical {
+.lightbox__stage video {
   width: auto;
-  height: 82vh;
-  aspect-ratio: 9 / 16;
+  height: auto;
+  max-width: min(92vw, 1100px);
+  max-height: 82vh;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
 }
 
 .lightbox__soon {
@@ -2950,10 +2881,6 @@ body[data-page="a-propos"] .about-block {
     padding: 10px;
   }
 
-  .video-card__cover--vertical {
-    aspect-ratio: 4 / 4.5;
-  }
-
   .panel__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3066,6 +2993,23 @@ body[data-page="creation-digitale"] .render-root .work__img:hover {
   box-shadow: 0 22px 48px rgba(10, 15, 60, 0.3);
 }
 
+@media (max-width: 1000px) {
+  .mobile-menu {
+    z-index: 49;
+  }
+
+  .menu-open .burger {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: var(--ink);
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero__title {
+    letter-spacing: calc(-1mm + 0.5px);
+  }
+}
+
 /* Arvie : une composition éditoriale en quatre visuels légendés. */
 body[data-page="creation-digitale"] .block--arvie .browsers-grid--arvie {
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -3152,17 +3096,20 @@ body[data-page="creation-digitale"] .render-root img {
   transform: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .site-project,
   .site-project--reverse {
     grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
+    gap: 22px;
+    min-height: 0;
     padding: clamp(16px, 4vw, 24px);
-    padding-top: calc(clamp(16px, 4vw, 24px) + 12px);
-    padding-bottom: calc(clamp(16px, 4vw, 24px) + 12px);
   }
 
-  .site-project--reverse .site-project__visual,
+  .site-project__index {
+    margin-bottom: 18px;
+  }
+
+  .site-project--reverse .site-project__intro,
   .site-project--reverse .site-project__content {
     order: initial;
   }
