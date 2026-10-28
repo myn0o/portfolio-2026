@@ -1,0 +1,263 @@
+{
+  "profile": {
+    "name": "Emma Nguyen",
+    "email": "emmaa.nguyen70@gmail.com"
+  },
+
+  "pages": {
+    "montage-video": {
+      "sections": [
+        {
+          "type": "reels",
+          "title": "Reels",
+          "text": "J’ai pu expérimenter différents formats en cherchant à créer des vidéos dynamiques et accrocheuses.",
+          "items": [
+            {
+              "title": "Bakery Freeze",
+              "text": "Montage montrant une immersion du restaurant avec un plan approché des produits",
+              "meta": ["GAST", "Première Pro", "2026"],
+              "poster": "assets/img/montage/bakery-freeze.webp",
+              "video": "assets/video/freeze-game.mp4"
+            },
+            {
+              "title": "Art of pastry making",
+              "text": "Démonstration d'une préparation d'un plat",
+              "meta": ["GAST", "Première Pro", "2026"],
+              "poster": "assets/img/montage/art-of-pastry.webp",
+              "video": "assets/video/art-of-creating.mp4"
+            },
+            {
+              "title": "Force pure",
+              "text": "Trend testant la force pure de personnes random dans la rue",
+              "meta": ["CROUSTYCREW", "Capcut / Alight Motion", "2026"],
+              "poster": "assets/img/montage/force-pure.webp",
+              "video": "assets/video/force-pure.mp4"
+            }
+          ]
+        },
+        {
+          "type": "films",
+          "title": "Courts métrages",
+          "text": "J’ai adoré travailler sur ces courts-métrages, de l’idée de départ au montage final, en donnant vie à des histoires à travers l’image et le son.",
+          "items": [
+            {
+              "layout": "carousel",
+              "title": "Train de vie",
+              "text": "Extraits du court métrage parlant d'un jeune homme en pleine recherche de soi.",
+              "meta": ["WORKSHOP VIDÉO", "Première Pro", "2025"],
+              "link": "",
+              "videos": [
+                "assets/video/court-metrage-1.mp4",
+                "assets/video/court-metrage-2.mp4",
+                "assets/video/court-metrage-3.mp4",
+                "assets/video/court-metrage-4.mp4",
+                "assets/video/court-metrage-5.mp4"
+              ]
+            },
+            {
+              "layout": "player",
+              "title": "Evolucion de la desigualdad",
+              "text": "",
+              "meta": ["PROJET FINAL ESPAGNOL", "Capcut", "2024"],
+              "poster": "",
+              "posterFrame": true,
+              "video": "assets/video/evolucion.mp4"
+            }
+          ]
+        }
+      ]
+    },
+
+    "photographie": {
+      "sections": [
+        {
+          "type": "photos",
+          "items": [
+            { "src": "assets/img/photo/archive/photo-02.webp", "alt": "Chrysanthème blanc photographié en gros plan", "width": 1536, "height": 2048, "ratio": "4 / 5" },
+            { "src": "assets/img/photo/archive/photo-03.webp", "alt": "Cosplay sombre aux motifs bleus lumineux", "width": 2048, "height": 1536, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-04.webp", "alt": "Fresque manga colorée", "width": 2048, "height": 1536, "ratio": "4 / 3" },
+            { "src": "assets/img/photo/archive/photo-05.webp", "alt": "Gerberas roses et fleurs fanées", "width": 1536, "height": 2048, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-06.webp", "alt": "Bouquet de fleurs roses et feuillage clair", "width": 2048, "height": 1536, "ratio": "4 / 3" },
+            { "src": "assets/img/photo/archive/photo-07.webp", "alt": "Montagnes vues depuis un avion", "width": 2048, "height": 1536, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-08.webp", "alt": "Grande roue au-dessus des palmiers", "width": 1536, "height": 2048, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-09.webp", "alt": "Rue ensoleillée bordée d'immeubles", "width": 1536, "height": 2048, "ratio": "4 / 5" },
+            { "src": "assets/img/photo/archive/photo-10.webp", "alt": "Tronc d'arbre vu en contre-plongée", "width": 2048, "height": 1536, "ratio": "4 / 3" },
+            { "src": "assets/img/photo/archive/photo-11.webp", "alt": "Hibiscus rose dans un feuillage vert", "width": 1536, "height": 2048, "ratio": "4 / 5" },
+            { "src": "assets/img/photo/archive/photo-13.webp", "alt": "Portrait d'un homme souriant", "width": 2898, "height": 3864, "ratio": "4 / 5" },
+            { "src": "assets/img/photo/archive/photo-14.webp", "alt": "Montage vidéo affiché sur un ordinateur portable", "width": 5184, "height": 3888, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-15.webp", "alt": "Appareil photo tenu à deux mains", "width": 5184, "height": 3888, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-16.webp", "alt": "Joueur de football en action dans une salle", "width": 2272, "height": 3029, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-17.webp", "alt": "Joueurs disputant un ballon sur le terrain", "width": 4467, "height": 3350, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-18.webp", "alt": "Joueur de football assis sur la pelouse", "width": 2048, "height": 1536, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-19.webp", "alt": "Joueur de football debout avec son ballon", "width": 1536, "height": 2048, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-20.webp", "alt": "Gros plan sur un pied qui contrôle le ballon", "width": 4761, "height": 3571, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-21.webp", "alt": "Portrait d'une personne aux cheveux bleus", "width": 1440, "height": 1920, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-22.webp", "alt": "Allée enneigée bordée d'arbres", "width": 4805, "height": 3604, "ratio": "3 / 2" },
+            { "src": "assets/img/photo/archive/photo-23.webp", "alt": "Feux d'artifice dans la nuit", "width": 3240, "height": 4320, "ratio": "4 / 5" },
+            { "src": "assets/img/photo/archive/photo-24.webp", "alt": "Agapanthe en fleur dans un jardin", "width": 2100, "height": 1500, "ratio": "4 / 3" },
+            { "src": "assets/img/photo/archive/photo-25.webp", "alt": "Falaise montagneuse dans la brume", "width": 2859, "height": 3812, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-26.webp", "alt": "Singe magot assis sur un rocher", "width": 3240, "height": 4320, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-27.webp", "alt": "Porte vitrée d'un hall ancien", "width": 1754, "height": 1316, "ratio": "4 / 3" },
+            { "src": "assets/img/photo/archive/photo-28.webp", "alt": "Photographe accoudé à une rambarde dans un studio", "width": 1377, "height": 1836, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photo-29.webp", "alt": "Photographe prenant une photo", "width": 1390, "height": 1853, "ratio": "3 / 4" },
+            { "src": "assets/img/photo/archive/photographe-detail.webp", "alt": "Gros plan sur les mains d'une photographe tenant son appareil", "width": 787, "height": 1049, "ratio": "3 / 4" }
+          ]
+        }
+      ]
+    },
+
+    "creation-digitale": {
+      "sections": [
+        {
+          "type": "panels",
+          "title": "Remplis ton feed",
+          "text": "Durant ces deux mois de stage chez \"remplistonfeed\", j'ai eu l'occasion de créer des carrousels instagram et concevoir d'autres types de création comme des logos et mascottes conçus avec Canva.",
+          "panels": [
+            {
+              "cols": 3,
+              "ratio": "3 / 4",
+              "items": [
+                { "src": "assets/img/creation/rtf-20k.webp", "alt": "Carrousel De 0 à 20k abonnés", "caption": "Canva • 2026" },
+                { "src": "assets/img/creation/rtf-virales.webp", "alt": "Carrousel Nos vidéos virales", "caption": "Canva • 2026" },
+                { "src": "assets/img/creation/rtf-methode.webp", "alt": "Carrousel Notre méthode de travail", "caption": "Canva • 2026" }
+              ]
+            },
+            {
+              "cols": 4,
+              "ratio": "3 / 4",
+              "items": [
+                { "src": "assets/img/creation/rtf-logo-feed.webp", "alt": "Logo Feed", "caption": "Illustrator • 2026" },
+                { "src": "assets/img/creation/rtf-ourson-bonnet.webp", "alt": "Mascotte ourson au bonnet", "caption": "Illustrator • 2026" },
+                { "src": "assets/img/creation/rtf-ourson-livre.webp", "alt": "Mascotte ourson avec un livre", "caption": "Illustrator • 2026" },
+                { "src": "assets/img/creation/rtf-ourson-laptop.webp", "alt": "Mascotte ourson sur ordinateur", "caption": "Illustrator • 2026" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "title": "Brandbook",
+          "text": "Cet exercice de création m'a permis de concevoir un logo à travers un travail de recherche et de réflexion graphique. J'ai donc réalisé plusieurs déclinaisons du logo à l'aide d'Adobe Illustrator.",
+          "panels": [
+            {
+              "cols": 3,
+              "ratio": "1 / 1",
+              "items": [
+                { "src": "assets/img/creation/brand-vert.webp", "alt": "Logo jaune sur fond vert", "caption": "Illustrator • 2026" },
+                { "src": "assets/img/creation/brand-blanc.webp", "alt": "Logo noir sur fond blanc", "caption": "Illustrator • 2026" },
+                { "src": "assets/img/creation/brand-noir.webp", "alt": "Logo blanc sur fond noir", "caption": "Illustrator • 2026" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "title": "GAST",
+          "text": "J'ai eu l'opportunité de collaborer avec la marque \"GAST\", qui m'a permis de concevoir des images générées à l'intelligence artificielle et un carrousel instagram créé sur Figma.",
+          "panels": [
+            {
+              "cols": 5,
+              "ratio": "9 / 16",
+              "expand": true,
+              "items": [
+                { "src": "assets/img/creation/gast-triomphe.webp", "alt": "Arc de triomphe aux couleurs de GAST", "caption": "Gast's Triomphe • 2026" },
+                { "src": "assets/img/creation/gast-dessert.webp", "alt": "Dessert géant", "caption": "Ultimate Dessert • 2026" },
+                { "src": "assets/img/creation/gast-croissant.webp", "alt": "Croissant géant porté dans la rue", "caption": "Fresh Croissant • 2026" },
+                { "src": "assets/img/creation/gast-click.webp", "alt": "Application Click and Collect géante", "caption": "Click and Collect • 2026" },
+                { "src": "assets/img/creation/gast-sweet-cart.webp", "alt": "Chariot de viennoiseries GAST", "caption": "Gast's Sweet Cart • 2026" }
+              ]
+            },
+            {
+              "cols": 3,
+              "ratio": "3 / 4",
+              "items": [
+                { "src": "assets/img/creation/gast-mood.webp", "alt": "Visuel What's your mood today", "caption": "Figma • 2026" },
+                { "src": "assets/img/creation/gast-chill-latte.webp", "alt": "Visuel Chill Latte", "caption": "Figma • 2026" },
+                { "src": "assets/img/creation/gast-happy-croissant.webp", "alt": "Visuel Happy Croissant", "caption": "Figma • 2026" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "browsers",
+          "title": "Arvie",
+          "text": "Cette semaine de projet nommée \"Game Changer\" m'a permis de me concentrer sur une innovation concentrée sur la réintégration sociale des personnes âgées isolées. On a alors élaboré plusieurs stratégies de réintégration telles que la création d'affiche et d'une landing page à l'aide de Figma et Canva.",
+          "items": [
+            { "src": "assets/img/creation/arvie-landing.webp", "alt": "Landing page Arvie", "caption": "Landing page" },
+            { "src": "assets/img/creation/arvie-inscription.webp", "alt": "Formulaire d'inscription Arvie", "caption": "Parcours d'inscription" },
+            { "src": "assets/img/creation/arvie-affiche-bsa.webp", "alt": "Affiche Viens passer ton BSA", "caption": "Campagne" },
+            { "src": "assets/img/creation/arvie-affiche.webp", "alt": "Affiche Nous sommes à vos côtés", "caption": "Campagne" }
+          ]
+        },
+        {
+          "type": "panels",
+          "title": "Vibetune",
+          "text": "Durant cet examen de 3h, il a fallu créer une mini application permettant de lire une playlist selon l'ambiance désirée à l'aide de Figma.",
+          "panels": [
+            {
+              "cols": 3,
+              "ratio": "9 / 19.5",
+              "items": [
+                { "src": "assets/img/creation/vibetune-ambiance.webp", "alt": "Écran Choisis ton ambiance", "caption": "Figma • 2026" },
+                { "src": "assets/img/creation/vibetune-playlist.webp", "alt": "Écran playlist Nostalgie music", "caption": "Figma • 2026" },
+                { "src": "assets/img/creation/vibetune-lecteur.webp", "alt": "Écran lecteur de musique", "caption": "Figma • 2026" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "duo",
+          "title": "Yummy Lips",
+          "text": "J'ai eu l'occasion de collaborer avec Capcut dans le but de promouvoir une marque fictive à travers les nouvelles fonctionnalités sur l'application.",
+          "items": [
+            { "src": "assets/img/creation/yummy-gouts.webp", "alt": "Visuel Quels types de goûts vous préférez", "caption": "Design Studio • 2026" },
+            { "src": "assets/img/creation/yummy-lipstick.webp", "alt": "Rouge à lèvres Yummy Lips", "caption": "Vidéo Studio • 2026", "caption2": "Seedance 2.0", "video": "assets/video/yummy-lips.mp4" }
+          ]
+        }
+      ]
+    },
+
+    "site-web": {
+      "sections": [
+        {
+          "type": "site",
+          "title": "Site touristique",
+          "text": "Il a fallu réaliser le site d'une ville de notre choix à l'aide de VS CODE, j'ai donc choisi Kyoto à l'image de mon site web. Voici une capture d'écran de l'accueil.",
+          "image": "assets/img/web/kyoto.webp",
+          "alt": "Page d'accueil du site sur Kyoto",
+          "url": "https://courageous-pavlova-feb1a1.netlify.app/#section1",
+          "linkLabel": "Explorer le site",
+          "tool": "VS Code",
+          "note": "Ouvrir le lien sur FIREFOX pour une meilleure expérience."
+        },
+        {
+          "type": "site",
+          "title": "Rata - Kata",
+          "text": "L'utilisation de wordpress était nécessaire pour créer le site d'un restaurant de notre choix, afin de mettre en valeur les repas et informations essentielles.",
+          "image": "assets/img/web/rata-kata.webp",
+          "alt": "Page d'accueil du site du restaurant Rata-Kata",
+          "url": "https://www.youtube.com/watch?v=XocNfv2-Vr4",
+          "linkLabel": "Voir le projet",
+          "tool": "WordPress"
+        }
+      ]
+    },
+
+    "a-propos": {
+      "sections": [
+        {
+          "type": "links",
+          "title": "Vlogs",
+          "text": "Vloguer c'est comme un sentiment qui stocke tous ses souvenirs dans une simple caméra, un téléphone ou même un Nokia car au final pour filmer, on a juste besoin d'un truc qui filme. Je monte à l'aide de Première Pro et Capcut.",
+          "button": { "label": "Playlist", "url": "https://www.youtube.com/playlist?list=PLgehHoFKeTsPCP82-Uzj9--qKme1rNor7" }
+        },
+        {
+          "type": "links",
+          "title": "Edits",
+          "text": "Cette passion remonte au collège, où j'ai appris pour la première fois comment monter plusieurs clips consécutifs. Voici quelques-uns de mes edits dont j'en suis le plus fière, montés à l'aide d'Alight Motion et Node Vidéo.",
+          "button": { "label": "Playlist", "url": "https://www.youtube.com/playlist?list=PLZvoBWC9wdsBCxCEPm08xFJdHUAZDle31" }
+        }
+      ]
+    }
+  }
+}
