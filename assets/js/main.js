@@ -468,14 +468,16 @@
 
   function introPage(delay) {
     var tl = gsap.timeline({ delay: delay });
-    var years = splitChars($('.page-hero__years'));
-    var title = splitChars($('.page-hero__title'));
+    var hero = $('.page-hero');
+    var years = $('.page-hero__years');
+    var title = $('.page-hero__title');
     var textEl = $('.page-hero__text');
     var lines = textEl ? SplitText.create(textEl, { type: 'lines', mask: 'lines' }) : { lines: [] };
 
     tl.from('.header__logo, .nav > *, .burger', { y: -24, opacity: 0, stagger: 0.04, duration: 0.6, ease: 'power3.out' }, 0)
-      .from(years.chars, { opacity: 0, y: 26, rotation: NO_CATEGORY_ROTATION ? 0 : -20, stagger: 0.04, duration: 0.6, ease: 'back.out(2.5)' }, 0.1)
-      .from(title.chars, { yPercent: 110, opacity: 0, rotationX: NO_CATEGORY_ROTATION ? 0 : -95, transformOrigin: '50% 100%', stagger: 0.035, duration: 1, ease: 'expo.out' }, 0.25)
+      .from(hero, { clipPath: REDUCE ? 'inset(0% 0% 0% 0%)' : 'inset(0% 100% 0% 0%)', duration: REDUCE ? 0.01 : 0.95, ease: 'power3.inOut' }, 0)
+      .from(years, { x: REDUCE ? 0 : function () { return -window.innerWidth; }, opacity: REDUCE ? 1 : 0, duration: REDUCE ? 0.01 : 0.85, ease: 'power3.out' }, 0.1)
+      .from(title, { x: REDUCE ? 0 : function () { return -window.innerWidth; }, opacity: REDUCE ? 1 : 0, duration: REDUCE ? 0.01 : 1, ease: 'expo.out' }, 0.25)
       .from(lines.lines, { yPercent: 105, duration: 1, stagger: 0.1, ease: 'expo.out', onComplete: function () { if (lines.revert) lines.revert(); } }, 0.65);
     return tl;
   }
@@ -550,7 +552,7 @@
       var tl = gsap.timeline({ paused: true })
         .to(front, { rotationX: -30, y: 4, duration: 0.8, ease: 'power3.inOut', transformPerspective: 700 }, 0)
         .to(icons, {
-          y: function (k) { return -42 - (k % 2) * 12; },
+          y: function (k) { return -58 - (k % 2) * 12; },
           rotation: function (k) { return [-14, 10, -6, 14][k % 4]; },
           scale: 1,
           opacity: 1,
@@ -822,7 +824,7 @@
 
     site: function (s, si) {
       var number = si + 1 < 10 ? '0' + (si + 1) : String(si + 1);
-      return '<article class="site-project' + (si % 2 ? ' site-project--reverse' : '') + '">' +
+      return '<article class="site-project">' +
         '<div class="site-project__intro"><span class="site-project__index">' + number + ' / PROJET WEB</span>' +
         '<p class="site-project__eyebrow">Création web' + (s.tool ? ' · ' + esc(s.tool) : '') + '</p>' +
         '<h2 class="site-project__title">' + esc(s.title) + '</h2>' +
