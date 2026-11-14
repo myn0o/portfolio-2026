@@ -110,6 +110,7 @@
       "sections": [
         {
           "type": "panels",
+          "id": "remplistonfeed",
           "title": "Remplis ton feed",
           "text": "Durant ces deux mois de stage chez \"remplistonfeed\", j'ai eu l'occasion de créer des carrousels instagram et concevoir d'autres types de création comme des logos et mascottes conçus avec Canva.",
           "panels": [
@@ -136,6 +137,7 @@
         },
         {
           "type": "panels",
+          "id": "logo-brandbook",
           "title": "Brandbook",
           "text": "Cet exercice de création m'a permis de concevoir un logo à travers un travail de recherche et de réflexion graphique. J'ai donc réalisé plusieurs déclinaisons du logo à l'aide d'Adobe Illustrator.",
           "panels": [
@@ -207,6 +209,7 @@
         },
         {
           "type": "duo",
+          "id": "yummy-lips",
           "title": "Yummy Lips",
           "text": "J'ai eu l'occasion de collaborer avec Capcut dans le but de promouvoir une marque fictive à travers les nouvelles fonctionnalités sur l'application.",
           "items": [

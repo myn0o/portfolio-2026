@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cal+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=22">
   <script>
     /* La page démarre recouverte par le rideau de transition. Sécurité : si le JS plante, on retire le rideau. */
     document.documentElement.classList.add('js');
@@ -54,7 +54,7 @@
             <div class="hero__card">
               <div class="hero__content">
                 <h1 class="hero__title">
-                  <span class="hero__title-row"><span>Du</span><span class="hero__title-gap" aria-hidden="true"><span class="hero__avatar"><img src="assets/img/home/avatar.webp" alt="" width="1100" height="1021" fetchpriority="high"></span></span><span>design</span></span>
+                  <span class="hero__title-row"><span>Du</span><span class="hero__title-gap" aria-hidden="true"><span class="hero__avatar"><img src="assets/img/home/me-character.png" alt="" width="840" height="768" fetchpriority="high"></span></span><span>design</span></span>
                   <span class="hero__title-row hero__title-row--second">conçu pour captiver</span>
                 </h1>
                 <p class="hero__sub">Emma Nguyen — Étudiante en B2 à l’École Supérieure du Digital et passionnée par la création digitale et le montage vidéo.</p>
@@ -117,28 +117,166 @@
     <section class="projects" id="projets">
       <div class="wrap">
         <h2 class="sec-title"><span class="sec-title__line"></span><svg class="swirl" viewBox="0 0 42 20" aria-hidden="true"><path d="M1 13c6 0 8-9 14-9s6 10 0 10-4-9 5-9 9 6 21 6"/></svg><span class="sec-title__text">Mes Projets</span><svg class="swirl swirl--flip" viewBox="0 0 42 20" aria-hidden="true"><path d="M1 13c6 0 8-9 14-9s6 10 0 10-4-9 5-9 9 6 21 6"/></svg><span class="sec-title__line"></span></h2>
-        <div class="glass-panel">
-          <div class="cat-grid">
-            <a class="cat-card" href="montage-video.html" data-cursor="Voir" aria-label="Découvrir les projets de montage vidéo">
-              <div class="cat-card__body">
-                <div class="cat-card__caption"><span class="cat-card__rule" aria-hidden="true"></span><h3 class="cat-card__title">Montage vidéo</h3><p class="cat-card__text">Je monte mes vidéos à l’aide de Premiere Pro et d’autres outils de montage.</p></div>
+        <div class="glass-panel projects__panel">
+          <div class="projects__intro">
+            <p class="projects__eyebrow">Portfolio — sélection 2026</p>
+            <p class="projects__intro-text">Quelques projets choisis pour vous.</p>
+          </div>
+          <div class="project-feature-grid" aria-label="Sélection de réalisations">
+            <article class="project-feature project-feature--feed">
+              <div class="project-feature__details">
+                <div class="project-feature__caption">
+                  <div><span class="project-feature__index">01 / CRÉATION DIGITALE</span><h3 class="project-feature__title">Remplistonfeed</h3></div>
+                </div>
+                <p class="project-feature__description">Durant ces deux mois de stage chez Remplistonfeed, j’ai eu l’occasion de créer des carrousels Instagram et d’autres supports, comme des logos et des mascottes, avec Canva.</p>
+                <a class="project-feature__cta" href="creation-digitale.html#remplistonfeed">Voir le projet <span aria-hidden="true">↗</span></a>
               </div>
-            </a>
+              <div class="project-feature__media">
+                <div class="project-carousel" data-carousel aria-label="Réalisations Remplistonfeed">
+                  <div class="project-carousel__viewport" tabindex="0" aria-label="Faites défiler les visuels Remplistonfeed">
+                    <div class="project-carousel__track">
+                      <div class="project-carousel__slide"><img src="assets/img/creation/rtf-20k.webp" alt="Carrousel Canva : de 0 à 20k abonnés" width="1050" height="1400" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/creation/rtf-virales.webp" alt="Carrousel Canva : nos vidéos virales" width="1050" height="1400" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/creation/rtf-methode.webp" alt="Carrousel Canva : notre méthode de travail" width="1050" height="1400" loading="lazy"></div>
+                    </div>
+                  </div>
+                  <div class="project-carousel__controls">
+                    <span class="project-carousel__count" aria-live="polite">01 / 03</span>
+                    <div class="project-carousel__dots" aria-label="Choisir un visuel"></div>
+                    <div class="project-carousel__arrows">
+                      <button class="project-carousel__arrow" type="button" data-carousel-prev aria-label="Visuel précédent"><span aria-hidden="true">←</span></button>
+                      <button class="project-carousel__arrow" type="button" data-carousel-next aria-label="Visuel suivant"><span aria-hidden="true">→</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="project-feature project-feature--brandbook">
+              <div class="project-feature__details">
+                <div class="project-feature__caption">
+                  <div><span class="project-feature__index">02 / IDENTITÉ VISUELLE</span><h3 class="project-feature__title">Une signature,<br>trois expressions.</h3></div>
+                </div>
+                <div class="project-editorial-card">
+                  <p>Cet exercice de création m’a permis de concevoir un logo à travers un travail de recherche et de réflexion graphique. J’ai ensuite réalisé plusieurs déclinaisons à l’aide d’Adobe Illustrator.</p>
+                  <div class="project-editorial-card__palette" aria-label="Déclinaisons de couleur : vert, jaune, blanc et noir">
+                    <span class="project-editorial-card__swatch project-editorial-card__swatch--green"></span>
+                    <span class="project-editorial-card__swatch project-editorial-card__swatch--yellow"></span>
+                    <span class="project-editorial-card__swatch project-editorial-card__swatch--white"></span>
+                    <span class="project-editorial-card__swatch project-editorial-card__swatch--black"></span>
+                  </div>
+                </div>
+                <a class="project-feature__cta" href="creation-digitale.html#logo-brandbook">Voir le projet <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="project-feature__media">
+                <div class="project-carousel project-carousel--brandbook" data-carousel aria-label="Logos du Brandbook">
+                  <div class="project-carousel__viewport" tabindex="0" aria-label="Faites défiler les logos du Brandbook">
+                    <div class="project-carousel__track">
+                      <div class="project-carousel__slide"><img src="assets/img/creation/brand-vert.webp" alt="Logo jaune sur fond vert" width="1400" height="1000" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/creation/brand-blanc.webp" alt="Logo noir sur fond blanc" width="1400" height="1000" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/creation/brand-noir.webp" alt="Logo blanc sur fond noir" width="1400" height="1000" loading="lazy"></div>
+                    </div>
+                  </div>
+                  <div class="project-carousel__controls">
+                    <span class="project-carousel__count" aria-live="polite">01 / 03</span>
+                    <div class="project-carousel__dots" aria-label="Choisir un logo"></div>
+                    <div class="project-carousel__arrows">
+                      <button class="project-carousel__arrow" type="button" data-carousel-prev aria-label="Logo précédent"><span aria-hidden="true">←</span></button>
+                      <button class="project-carousel__arrow" type="button" data-carousel-next aria-label="Logo suivant"><span aria-hidden="true">→</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="project-feature project-feature--yummy">
+              <div class="project-feature__details">
+                <div class="project-feature__caption">
+                  <div><span class="project-feature__index">03 / CAMPAGNE VISUELLE</span><h3 class="project-feature__title">Yummy Lips</h3></div>
+                </div>
+                <p class="project-feature__description">J’ai eu l’occasion de collaborer avec CapCut afin de promouvoir une marque fictive en explorant les nouvelles fonctionnalités de l’application.</p>
+                <a class="project-feature__cta" href="creation-digitale.html#yummy-lips">Voir le projet <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="project-feature__media">
+                <div class="project-carousel" data-carousel aria-label="Réalisations Yummy Lips">
+                  <div class="project-carousel__viewport" tabindex="0" aria-label="Faites défiler les visuels Yummy Lips">
+                    <div class="project-carousel__track">
+                      <div class="project-carousel__slide"><img src="assets/img/creation/yummy-gouts.webp" alt="Visuel Yummy Lips : quels types de goûts préférez-vous ?" width="1050" height="1400" loading="lazy"></div>
+                      <div class="project-carousel__slide project-carousel__slide--video" aria-hidden="true">
+                        <video src="assets/video/yummy-lips.mp4" poster="assets/img/creation/yummy-lipstick.webp" width="1080" height="1920" playsinline muted loop preload="metadata" aria-label="Vidéo de campagne Yummy Lips"></video>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-carousel__controls">
+                    <span class="project-carousel__count" aria-live="polite">01 / 02</span>
+                    <div class="project-carousel__dots" aria-label="Choisir un visuel"></div>
+                    <div class="project-carousel__arrows">
+                      <button class="project-carousel__arrow" type="button" data-carousel-prev aria-label="Visuel précédent"><span aria-hidden="true">←</span></button>
+                      <button class="project-carousel__arrow" type="button" data-carousel-next aria-label="Visuel suivant"><span aria-hidden="true">→</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="project-feature project-feature--photo">
+              <div class="project-feature__details">
+                <div class="project-feature__caption">
+                  <div><span class="project-feature__index">04 / REGARD PHOTOGRAPHIQUE</span><h3 class="project-feature__title">Photographies</h3></div>
+                </div>
+                <p class="project-feature__description">J’aime capturer des instants précieux à travers la photographie, en immortalisant des souvenirs et des moments uniques de la vie.</p>
+                <a class="project-feature__cta" href="photographie.html">Voir le projet <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="project-feature__media">
+                <div class="project-carousel" data-carousel aria-label="Sélection de photographies">
+                  <div class="project-carousel__viewport" tabindex="0" aria-label="Faites défiler les photographies">
+                    <div class="project-carousel__track">
+                      <div class="project-carousel__slide"><img src="assets/img/photo/archive/photo-02.webp" alt="Chrysanthème blanc photographié en gros plan" width="1536" height="2048" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/photo/fleurs-roses.webp" alt="Rose rose parmi des fleurs blanches" width="1600" height="1200" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/photo/appareil.webp" alt="Photographe tenant un appareil photo" width="1600" height="1200" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/photo/montagnes.webp" alt="Montagnes couvertes de nuages vues depuis les airs" width="1600" height="1200" loading="lazy"></div>
+                      <div class="project-carousel__slide" aria-hidden="true"><img src="assets/img/photo/archive/photo-28.webp" alt="Photographe accoudé à une rambarde dans un studio" width="1377" height="1836" loading="lazy"></div>
+                    </div>
+                  </div>
+                  <div class="project-carousel__controls">
+                    <span class="project-carousel__count" aria-live="polite">01 / 05</span>
+                    <div class="project-carousel__dots" aria-label="Choisir une photographie"></div>
+                    <div class="project-carousel__arrows">
+                      <button class="project-carousel__arrow" type="button" data-carousel-prev aria-label="Photo précédente"><span aria-hidden="true">←</span></button>
+                      <button class="project-carousel__arrow" type="button" data-carousel-next aria-label="Photo suivante"><span aria-hidden="true">→</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="projects__discover">
+            <div class="projects__discover-heading">
+              <p class="projects__eyebrow">Explorer par catégorie</p>
+            </div>
+            <div class="cat-grid">
             <a class="cat-card" href="creation-digitale.html" data-cursor="Voir" aria-label="Découvrir les projets de création digitale">
               <div class="cat-card__body">
                 <div class="cat-card__caption"><span class="cat-card__rule" aria-hidden="true"></span><h3 class="cat-card__title">Création digitale</h3><p class="cat-card__text">J’utilise la suite Adobe, Figma et Canva pour créer.</p></div>
+                <span class="cat-card__arrow" aria-hidden="true">↗</span>
               </div>
             </a>
             <a class="cat-card" href="photographie.html" data-cursor="Voir" aria-label="Découvrir les projets de photographie">
               <div class="cat-card__body">
                 <div class="cat-card__caption"><span class="cat-card__rule" aria-hidden="true"></span><h3 class="cat-card__title">Photographie</h3><p class="cat-card__text">À l’aide d’un LUMIX GH5 et d’un Sony Cyber-shot H55, je photographie depuis 2025.</p></div>
+                <span class="cat-card__arrow" aria-hidden="true">↗</span>
+              </div>
+            </a>
+            <a class="cat-card" href="montage-video.html" data-cursor="Voir" aria-label="Découvrir les projets de montage vidéo">
+              <div class="cat-card__body">
+                <div class="cat-card__caption"><span class="cat-card__rule" aria-hidden="true"></span><h3 class="cat-card__title">Montage vidéo</h3><p class="cat-card__text">Je monte mes vidéos à l’aide de Premiere Pro et d’autres outils de montage.</p></div>
+                <span class="cat-card__arrow" aria-hidden="true">↗</span>
               </div>
             </a>
             <a class="cat-card" href="site-web.html" data-cursor="Voir" aria-label="Découvrir les projets de sites web">
               <div class="cat-card__body">
                 <div class="cat-card__caption"><span class="cat-card__rule" aria-hidden="true"></span><h3 class="cat-card__title">Site web</h3><p class="cat-card__text">Voici quelques sites web réalisés à l’aide de VS Code et WordPress.</p></div>
+                <span class="cat-card__arrow" aria-hidden="true">↗</span>
               </div>
             </a>
+            </div>
           </div>
         </div>
       </div>
@@ -182,6 +320,6 @@
   <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/js/vendor/SplitText.min.js"></script>
   <script src="assets/js/vendor/lenis.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=24"></script>
 </body>
 </html>
