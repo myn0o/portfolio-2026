@@ -697,6 +697,14 @@
         var animations = [];
         var activeFrame = 0;
         var activeIndex = -1;
+        var header = $('.header');
+        var resizeObserver = null;
+
+        function updateStickyOffset() {
+          var headerBottom = header ? header.getBoundingClientRect().bottom : 94;
+          var stickyTop = Math.ceil(headerBottom + 16);
+          stackCards[0].parentElement.style.setProperty('--project-sticky-top', stickyTop + 'px');
+        }
 
         function setActive(index) {
           if (index === activeIndex) return;
@@ -728,10 +736,23 @@
           if (!activeFrame) activeFrame = window.requestAnimationFrame(syncActiveCard);
         }
 
+        function updateOffsetsOnResize() {
+          updateStickyOffset();
+          scheduleActiveCardSync();
+        }
+
+        updateStickyOffset();
+        if (header && typeof ResizeObserver !== 'undefined') {
+          resizeObserver = new ResizeObserver(function () {
+            updateStickyOffset();
+            scheduleActiveCardSync();
+          });
+          resizeObserver.observe(header);
+        }
         setActive(0);
         syncActiveCard();
         window.addEventListener('scroll', scheduleActiveCardSync, { passive: true });
-        window.addEventListener('resize', scheduleActiveCardSync);
+        window.addEventListener('resize', updateOffsetsOnResize);
 
         if (!REDUCE) {
           for (var i = 0; i < stackCards.length - 1; i += 1) {
@@ -751,7 +772,8 @@
 
         return function () {
           window.removeEventListener('scroll', scheduleActiveCardSync);
-          window.removeEventListener('resize', scheduleActiveCardSync);
+          window.removeEventListener('resize', updateOffsetsOnResize);
+          if (resizeObserver) resizeObserver.disconnect();
           if (activeFrame) window.cancelAnimationFrame(activeFrame);
           animations.forEach(function (animation) {
             animation.scrollTrigger && animation.scrollTrigger.kill();
@@ -762,6 +784,7 @@
             card.removeAttribute('data-stack-active');
             card.style.removeProperty('z-index');
           });
+          stackCards[0].parentElement.style.removeProperty('--project-sticky-top');
           gsap.set(stackCards, { clearProps: 'transform' });
         };
       });
@@ -1140,8 +1163,7 @@
           }
         });
       }
-      gsap.from(cards, {
-        opacity: 0,
+      var cardsEntry = {
         y: isReels ? 72 : 68,
         scale: isReels ? 0.9 : 0.97,
         rotation: isReels ? function (index) { return index % 2 ? 3 : -3; } : 0,
@@ -1151,7 +1173,9 @@
         duration: isReels ? 1.8 : 1.25,
         ease: isReels ? 'back.out(1.25)' : 'expo.out',
         scrollTrigger: { trigger: grid, start: 'top 86%' }
-      });
+      };
+      if (isReels) cardsEntry.opacity = 0;
+      gsap.from(cards, cardsEntry);
       cards.forEach(function (card) {
         var cover = $('.video-card__cover', card);
         tilt(card, cover, isReels ? 4 : 2.5);
@@ -1181,9 +1205,23 @@
     // Panneaux de création
     $$('.panel').forEach(function (panel) {
       var works = $$('.work', panel);
-        gsap.timeline({ scrollTrigger: { trigger: panel, start: 'top 82%' } })
-        .from(panel, { opacity: 0, y: 80, scale: 0.96, duration: 1.1, ease: 'expo.out' })
-        .from(works, { opacity: 0, y: 70, rotation: NO_CATEGORY_ROTATION ? 0 : function (i) { return i % 2 ? 4 : -4; }, scale: 0.9, stagger: 0.08, duration: 1, ease: 'expo.out' }, 0.2);
+      var withoutFade = !!panel.closest('#gast');
+      var panelEntry = { y: 80, scale: 0.96, duration: 1.1, ease: 'expo.out' };
+      var worksEntry = {
+        y: 70,
+        rotation: NO_CATEGORY_ROTATION ? 0 : function (i) { return i % 2 ? 4 : -4; },
+        scale: 0.9,
+        stagger: 0.08,
+        duration: 1,
+        ease: 'expo.out'
+      };
+      if (!withoutFade) {
+        panelEntry.opacity = 0;
+        worksEntry.opacity = 0;
+      }
+      gsap.timeline({ scrollTrigger: { trigger: panel, start: 'top 82%' } })
+        .from(panel, panelEntry)
+        .from(works, worksEntry, 0.2);
       if (!NO_CATEGORY_ROTATION) works.forEach(function (w) { tilt(w, $('.work__img', w), 6); });
       parallaxTexture(panel);
     });

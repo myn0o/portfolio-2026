@@ -154,6 +154,7 @@
         },
         {
           "type": "panels",
+          "id": "gast",
           "title": "GAST",
           "text": "J'ai eu l'opportunité de collaborer avec la marque \"GAST\", qui m'a permis de concevoir des images générées à l'intelligence artificielle et un carrousel instagram créé sur Figma.",
           "panels": [
