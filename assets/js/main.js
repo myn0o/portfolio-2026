@@ -759,6 +759,7 @@
             animations.push(gsap.to(stackCards[i], {
               scale: 0.975,
               y: -8,
+              rotationX: -1.2,
               ease: 'none',
               scrollTrigger: {
                 trigger: stackCards[i + 1],
@@ -961,7 +962,7 @@
         } else {
           cover = videoCover(it, false);
         }
-        return '<article class="video-card video-card--film' + (extraFrames ? ' video-card--gallery' : '') + '">' + cover + extraFrames +
+        return '<article class="video-card video-card--film' + (it.title === 'Train de vie' ? ' video-card--train-de-vie' : '') + (extraFrames ? ' video-card--gallery' : '') + '">' + cover + extraFrames +
           '<div class="video-card__body"><h3 class="video-card__title">' + esc(it.title) + '</h3>' +
           (it.text ? '<p class="video-card__text">' + esc(it.text) + '</p>' : '') + meta(it.meta) + '</div></article>';
       }).join('') + '</div>';
@@ -1179,12 +1180,14 @@
       cards.forEach(function (card) {
         var cover = $('.video-card__cover', card);
         tilt(card, cover, isReels ? 4 : 2.5);
-        gsap.from(cover, {
-          clipPath: 'inset(0% 0% 100% 0% round 14px)',
-          duration: isReels ? 0.9 : 1.1,
-          ease: 'power3.inOut',
-          scrollTrigger: { trigger: card, start: 'top 88%' }
-        });
+        if (!card.classList.contains('video-card--train-de-vie')) {
+          gsap.from(cover, {
+            clipPath: 'inset(0% 0% 100% 0% round 14px)',
+            duration: isReels ? 0.9 : 1.1,
+            ease: 'power3.inOut',
+            scrollTrigger: { trigger: card, start: 'top 88%' }
+          });
+        }
       });
     });
 

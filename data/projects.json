@@ -184,10 +184,8 @@
         {
           "type": "browsers",
           "title": "Arvie",
-          "text": "Cette semaine de projet nommée \"Game Changer\" m'a permis de me concentrer sur une innovation concentrée sur la réintégration sociale des personnes âgées isolées. On a alors élaboré plusieurs stratégies de réintégration telles que la création d'affiche et d'une landing page à l'aide de Figma et Canva.",
+          "text": "Cette semaine de projet nommée \"Game Changer\" m'a permis de me concentrer sur une innovation dédiée à la réintégration sociale des personnes âgées isolées. Nous avons élaboré plusieurs stratégies de réintégration, dont des affiches de campagne réalisées avec Figma et Canva.",
           "items": [
-            { "src": "assets/img/creation/arvie-landing.webp", "alt": "Landing page Arvie", "caption": "Landing page" },
-            { "src": "assets/img/creation/arvie-inscription.webp", "alt": "Formulaire d'inscription Arvie", "caption": "Parcours d'inscription" },
             { "src": "assets/img/creation/arvie-affiche-bsa.webp", "alt": "Affiche Viens passer ton BSA", "caption": "Campagne" },
             { "src": "assets/img/creation/arvie-affiche.webp", "alt": "Affiche Nous sommes à vos côtés", "caption": "Campagne" }
           ]

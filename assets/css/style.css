@@ -3249,6 +3249,8 @@ body[data-page="index"] .projects > .wrap {
 
 .project-feature-grid {
   position: relative;
+  perspective: 1400px;
+  perspective-origin: center top;
   display: flex;
   flex-direction: column;
   gap: clamp(24px, 4vw, 44px);
@@ -3261,6 +3263,7 @@ body[data-page="index"] .projects > .wrap {
   --feature-surface: #f0afd0;
   --feature-frame: #f9f8f6;
   position: sticky;
+  transform-origin: center top;
   top: var(--project-sticky-top, 110px);
   z-index: 1;
   display: grid;
@@ -3285,13 +3288,13 @@ body[data-page="index"] .projects > .wrap {
 }
 
 .project-feature:nth-child(1) { top: var(--project-sticky-top, 110px); z-index: 1; }
-.project-feature:nth-child(2) { top: var(--project-sticky-top, 110px); z-index: 2; }
-.project-feature:nth-child(3) { top: var(--project-sticky-top, 110px); z-index: 3; }
-.project-feature:nth-child(4) { top: var(--project-sticky-top, 110px); z-index: 4; }
+.project-feature:nth-child(2) { top: calc(var(--project-sticky-top, 110px) + 7px); z-index: 2; }
+.project-feature:nth-child(3) { top: calc(var(--project-sticky-top, 110px) + 14px); z-index: 3; }
+.project-feature:nth-child(4) { top: calc(var(--project-sticky-top, 110px) + 21px); z-index: 4; }
 
 .project-feature--brandbook {
-  --feature-accent: #f0afd0;
-  --feature-surface: #f0afd0;
+  --feature-accent: #a8c98a;
+  --feature-surface: #a8c98a;
 }
 
 .project-feature--yummy {
@@ -3502,8 +3505,8 @@ body[data-page="index"] .projects > .wrap {
 }
 
 .projects__discover {
-  margin-top: clamp(12px, 2vw, 24px);
-  padding-top: clamp(16px, 2vw, 24px);
+  margin-top: clamp(22px, 3vw, 38px);
+  padding-top: clamp(18px, 2.5vw, 28px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -3529,7 +3532,7 @@ body[data-page="index"] .projects > .wrap {
 
   .projects__discover {
     margin-top: clamp(24px, 3vw, 40px);
-    padding-top: 0;
+    padding-top: clamp(18px, 2.5vw, 28px);
   }
 }
 
@@ -3619,8 +3622,8 @@ body[data-page="index"] .projects > .wrap {
   }
 
   .projects__discover {
-    margin-top: 0;
-    padding-top: 0;
+    margin-top: 24px;
+    padding-top: 18px;
   }
 
   .project-feature {
